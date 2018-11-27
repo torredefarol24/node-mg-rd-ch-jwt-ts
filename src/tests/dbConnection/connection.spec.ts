@@ -15,5 +15,4 @@ describe(descriptionText, () => {
     .catch( err => chai.assert.fail(err) )
   })
 
-
 })

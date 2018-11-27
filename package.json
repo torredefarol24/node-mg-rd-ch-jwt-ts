@@ -4,10 +4,12 @@
   "main": "server.js",
   "license": "MIT",
   "dependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/body-parser": "^1.17.0",
     "@types/express": "^4.16.0",
     "@types/jsonwebtoken": "^8.3.0",
     "@types/mongoose": "^5.3.1",
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
@@ -16,11 +18,11 @@
   "scripts": {
     "start": "node dist/server.js",
     "start-app": "nodemon dist/server.js",
-    "build" : "tsc",
+    "build": "tsc",
     "test": "mocha -r ts-node/register 'src/tests/**/*.spec.ts'",
-    "watch-ts" : "tsc -w",
-    "watch-js" : "nodemon dist/server.js",
-    "watch-test" : "mocha -r ts-node/register --watch 'src/tests/**/*.spec.ts' --watch-extensions ts"
+    "watch-ts": "tsc -w",
+    "watch-js": "nodemon dist/server.js",
+    "watch-test": "mocha -r ts-node/register --watch 'src/tests/**/*.spec.ts' --watch-extensions ts"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
