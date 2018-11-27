@@ -1,12 +1,14 @@
 import express from "express"
 import bodyParserConfig from './bootstrap/bodyParserConfig'
 import routeConfig from './bootstrap/routeConfig';
+import mongoDBConfig from './bootstrap/mongoDbConfig';
 
 class NodeExpressTsApp {
   constructor(){
     this.hostApp = express()
     this.bodyParserSetup()
     this.routeSetup()
+    this.dbSetup()
   }
 
   public hostApp : express.Application;
@@ -17,6 +19,10 @@ class NodeExpressTsApp {
 
   private routeSetup(): void{
     routeConfig(this.hostApp)
+  }
+
+  private dbSetup(){
+    mongoDBConfig()
   }
 }
 

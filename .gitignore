@@ -1,1 +1,3 @@
 node_modules
+src/keys/dbKeys.ts
+dist/keys/*
