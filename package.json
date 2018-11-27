@@ -22,7 +22,8 @@
     "test": "mocha -r ts-node/register 'src/tests/**/*.spec.ts'",
     "watch-ts": "tsc -w",
     "watch-js": "nodemon dist/server.js",
-    "watch-test": "mocha -r ts-node/register --watch 'src/tests/**/*.spec.ts' --watch-extensions ts"
+    "watch-test-js" : "mocha --watch dist/tests/**/*spec.js",
+    "watch-test-ts": "mocha -r ts-node/register --watch 'src/tests/**/*.spec.ts' --watch-extensions ts"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",

@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 
 let mongoDBSetup = function(){
   mongoose.connect( DBKEys.mongoLocalUrl, {useNewUrlParser: true })
-  .then( () => console.log("Mongo DB Connection Success") )
+  .then( () => console.log("Mongo DB Connection Successfull") )
   .catch( err => console.error("Mongo DB Error ", err) )
 }
 

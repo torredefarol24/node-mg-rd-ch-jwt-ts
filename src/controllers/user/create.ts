@@ -12,18 +12,16 @@ let createUser = function(request : Request, response : Response){
   }
 
   if (!request.body.fullName || !request.body.email || !request.body.password){
-    context.message = "Values Missing from Request"
+    context.message = "Values Missing from Request";
+    console.log(context.message)
     return response.status(400).json(context)
   }
 
-
   let userFindOptions = {
-    where : {
-      email : request.body.email
-    }
+    email : request.body.email
   }
 
-  let newUser:any= {
+  let newUser: any= {
     fullName : request.body.fullName,
     email : request.body.email
   }
@@ -32,6 +30,7 @@ let createUser = function(request : Request, response : Response){
   .then(user => {
     if (user){
       context.message = "Email already taken"
+      console.log(context.message)
       return response.status(401).json(context)
     } else {
 
@@ -41,19 +40,21 @@ let createUser = function(request : Request, response : Response){
         newUser.password = hashedPass
         User.create(newUser)
         .then(user => {
-          context.user = user;
-          context.message = "User Created"
+          context.message = `User Created ${user._id}`
           context.success = true
+          console.log(context.message)
           return response.status(201).json(context)
         })
         .catch(err => {
           context.message = err
+          console.log(context.message)
           return response.status(500).json(context)
         })
 
       })
       .catch(err => {
         context.message = err
+        console.log(context.message)
         return response.status(500).json(context)
       })
       
@@ -62,6 +63,7 @@ let createUser = function(request : Request, response : Response){
   })
   .catch( err => {
     context.message = err
+    console.log(context.message)
     return response.status(500).json(context)
   })
 

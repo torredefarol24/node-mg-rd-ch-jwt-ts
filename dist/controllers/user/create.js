@@ -14,12 +14,11 @@ var createUser = function (request, response) {
     };
     if (!request.body.fullName || !request.body.email || !request.body.password) {
         context.message = "Values Missing from Request";
+        console.log(context.message);
         return response.status(400).json(context);
     }
     var userFindOptions = {
-        where: {
-            email: request.body.email
-        }
+        email: request.body.email
     };
     var newUser = {
         fullName: request.body.fullName,
@@ -29,6 +28,7 @@ var createUser = function (request, response) {
         .then(function (user) {
         if (user) {
             context.message = "Email already taken";
+            console.log(context.message);
             return response.status(401).json(context);
         }
         else {
@@ -37,24 +37,27 @@ var createUser = function (request, response) {
                 newUser.password = hashedPass;
                 user_1.default.create(newUser)
                     .then(function (user) {
-                    context.user = user;
-                    context.message = "User Created";
+                    context.message = "User Created " + user._id;
                     context.success = true;
+                    console.log(context.message);
                     return response.status(201).json(context);
                 })
                     .catch(function (err) {
                     context.message = err;
+                    console.log(context.message);
                     return response.status(500).json(context);
                 });
             })
                 .catch(function (err) {
                 context.message = err;
+                console.log(context.message);
                 return response.status(500).json(context);
             });
         }
     })
         .catch(function (err) {
         context.message = err;
+        console.log(context.message);
         return response.status(500).json(context);
     });
 };

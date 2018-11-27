@@ -4,8 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var create_1 = __importDefault(require("./create"));
+var authenticate_1 = __importDefault(require("./authenticate"));
 var UserController = {
-    createNewUser: create_1.default
+    createNewUser: create_1.default,
+    loginUser: authenticate_1.default
 };
 exports.default = UserController;
 //# sourceMappingURL=userController.js.map

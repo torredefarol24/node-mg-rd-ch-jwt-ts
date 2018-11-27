@@ -43,22 +43,33 @@ var chai_1 = __importDefault(require("chai"));
 var chai_http_1 = __importDefault(require("chai-http"));
 var app_1 = __importDefault(require("../../app"));
 chai_1.default.use(chai_http_1.default);
-describe("Create User", function () {
-    it("should create new user", function () { return __awaiter(_this, void 0, void 0, function () {
+// describe("Create User", () => {
+//   it("should create new user", async() => {
+//     let postData: any = {
+//       fullName : "Harry Dom",
+//       email : "harry@test.com",
+//       password : "test1234"
+//     }
+//     let response = await chai.request(hostApp).post("/users/create").send(postData);
+//     console.log("USER CREATION TEST RESULT ", response.text)
+//     chai.expect(response.status).to.eql(201)
+//   })
+// })
+describe("Authenticate User", function () {
+    it("should authenticate user", function () { return __awaiter(_this, void 0, void 0, function () {
         var postData, response;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     postData = {
-                        fullName: "Harry Dom",
                         email: "harry@test.com",
                         password: "test1234"
                     };
-                    return [4 /*yield*/, chai_1.default.request(app_1.default).post("/users").send(postData)];
+                    return [4 /*yield*/, chai_1.default.request(app_1.default).post("/users/authenticate").send(postData)];
                 case 1:
                     response = _a.sent();
-                    console.log("TESTING SUITE", response.text);
-                    chai_1.default.expect(response.status).to.eql(201);
+                    console.log("USER AUTHENTICATION TEST RESULT ", response.text);
+                    chai_1.default.expect(response.status).to.eql(200);
                     return [2 /*return*/];
             }
         });

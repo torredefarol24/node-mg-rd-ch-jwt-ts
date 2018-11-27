@@ -1,24 +1,17 @@
 import mongoose from 'mongoose'
+import UserSchema from '../mongo-schemas/user'
+import {Document} from 'mongoose';
 
-const schemaOptions = {
-  firstName : {
-    type : String
-  },
-  email : {
-    type : String,
-    unique : true
-  },
-  password : {
-    type : String
-  },
-  created_at : {
-    type : Date,
-    default : Date.now
-  }
+interface UserInterface{
+  fullName: string,
+  email: string,
+  password: string
 }
 
-const UserSchema = new mongoose.Schema(schemaOptions)
-const UserModelName = "User"
+interface UserMongoose_Interface extends UserInterface, Document {}
 
-const UserModel = mongoose.model(UserModelName, UserSchema)
+const UserModelName = "User"
+mongoose.models = {}
+const UserModel = mongoose.model<UserMongoose_Interface>(UserModelName, UserSchema)
+
 export default UserModel

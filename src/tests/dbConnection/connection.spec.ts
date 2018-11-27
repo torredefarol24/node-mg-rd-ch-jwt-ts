@@ -14,5 +14,4 @@ describe(descriptionText, () => {
     .then( () => chai.expect(5).to.be.equal(5))
     .catch( err => chai.assert.fail(err) )
   })
-
 })
