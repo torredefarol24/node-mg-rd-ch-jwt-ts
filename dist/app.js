@@ -21,7 +21,8 @@ var NodeExpressTsApp = /** @class */ (function () {
         routeConfig_1.default(this.hostApp);
     };
     NodeExpressTsApp.prototype.dbSetup = function () {
-        mongoDbConfig_1.default();
+        mongoDbConfig_1.default.dockerSetup();
+        // mongoDBConfig.localSetup()
     };
     return NodeExpressTsApp;
 }());

@@ -22,7 +22,8 @@ class NodeExpressTsApp {
   }
 
   private dbSetup(){
-    mongoDBConfig()
+    mongoDBConfig.dockerSetup()
+    // mongoDBConfig.localSetup()
   }
 }
 

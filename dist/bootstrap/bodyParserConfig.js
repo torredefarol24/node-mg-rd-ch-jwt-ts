@@ -10,7 +10,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var bodyParser = __importStar(require("body-parser"));
 function bodyParserSetup(appInstance) {
     appInstance.use(bodyParser.json());
-    appInstance.use(bodyParser.urlencoded({ extended: false }));
+    appInstance.use(bodyParser.urlencoded({ extended: true }));
 }
 exports.default = bodyParserSetup;
 //# sourceMappingURL=bodyParserConfig.js.map

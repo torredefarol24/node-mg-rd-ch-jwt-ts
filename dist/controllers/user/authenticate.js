@@ -8,7 +8,8 @@ var bcrypt_1 = __importDefault(require("bcrypt"));
 var createJWT_1 = __importDefault(require("../../helperFunctions/createJWT"));
 var refreshToken_1 = __importDefault(require("../../helperFunctions/refreshToken"));
 var redis_1 = __importDefault(require("redis"));
-var redisDB = redis_1.default.createClient();
+// var redisDB = redis.createClient(6379, "localhost")
+var redisDB = redis_1.default.createClient(6379, "redis");
 var loginUser = function (request, response) {
     var context = {
         message: "Route and Controller works ",

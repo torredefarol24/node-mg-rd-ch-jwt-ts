@@ -10,7 +10,33 @@
 
 To test this,
 
-<h3> Create Ncessary Files </h3>
+<h1> Run Docker Container</h1>
+
+- Build Docker Image 
+```sh
+$ cd nodeJWT
+$ docker build -t <APP_IMAGE_NAME> . 
+
+```
+- Start Mongo Container
+```sh
+$ docker run --name <MONGO_INSTANCE> -d mongo
+```
+
+- Start Redis Container
+```sh
+$ docker run --name <REDIS_INSTANCE> -d redis
+```
+
+- Start App & Link Containers
+```sh
+$ docker run --name <APP_INSTANCE> --link <MONGO_INSTANCE_NAME>:mongo --link <REDIS_INSTANCE> -p 5000:4000 -d <APP_IAMGE_NAME>
+# Visit localhost:5000 
+```
+
+<h1> Run App Locally</h1>
+
+<h3> Create Necessary Files </h3>
 
  - Create DBKeys
 
@@ -42,6 +68,18 @@ const jwtKeys = {
 }
 
 export default jwtKeys
+```
+ 
+ - Update src/app.ts
+```sh
+$ cd nodeJWT
+
+#Change Line 25
+mongoDBConfig.dockerSetup()
+
+# to
+mongoDBConfig.localSetup()
+
 ```
 
 <h3> INSTALL PACKAGE DEPENDENCIES</h3>

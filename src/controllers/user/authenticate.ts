@@ -3,11 +3,10 @@ import {Request, Response} from 'express'
 import bcrypt from 'bcrypt'
 import createToken from '../../helperFunctions/createJWT'
 import createRefreshToken from '../../helperFunctions/refreshToken'
-
 import redis from 'redis'
-var redisDB = redis.createClient()
 
-
+// var redisDB = redis.createClient(6379, "localhost")
+var redisDB = redis.createClient(6379, "redis")
 
 let loginUser = function(request : Request, response : Response){
   let context:any = {
