@@ -5,6 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var user_1 = __importDefault(require("../../mongo-models/user"));
 var bcrypt_1 = __importDefault(require("bcrypt"));
+var createJWT_1 = __importDefault(require("../../helperFunctions/createJWT"));
+var refreshToken_1 = __importDefault(require("../../helperFunctions/refreshToken"));
+var redis_1 = __importDefault(require("redis"));
+var redisDB = redis_1.default.createClient();
 var loginUser = function (request, response) {
     var context = {
         message: "Route and Controller works ",
@@ -26,6 +30,15 @@ var loginUser = function (request, response) {
                 if (result == true) {
                     context.message = "Auth Successfull";
                     context.success = true;
+                    context.token = createJWT_1.default(user._id);
+                    context.refreshToken = refreshToken_1.default(user._id);
+                    context.userId = user._id;
+                    var recordName = "TOKEN_LIST_" + user._id;
+                    var redisData = {
+                        "token": "" + context.token,
+                        "refreshToken": "" + context.refreshToken
+                    };
+                    redisDB.hmset(recordName, redisData);
                     return response.status(200).json(context);
                 }
                 else {

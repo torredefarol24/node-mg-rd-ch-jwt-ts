@@ -57,4 +57,18 @@ describe('Hey API Request', function () {
         });
     }); });
 });
+describe("Route Protected Request", function () {
+    it('should throw auth error without token', function () { return __awaiter(_this, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, chai_1.default.request(app_1.default).get("/index/dummy/cats")];
+                case 1:
+                    response = _a.sent();
+                    chai_1.default.expect(response.status).to.eql(401);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
 //# sourceMappingURL=indexLoaded.spec.js.map

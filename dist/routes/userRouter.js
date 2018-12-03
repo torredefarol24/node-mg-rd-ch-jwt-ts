@@ -8,5 +8,6 @@ var userController_1 = __importDefault(require("../controllers/user/userControll
 var userRouter = express_1.Router();
 userRouter.post("/create", userController_1.default.createNewUser);
 userRouter.post("/authenticate", userController_1.default.loginUser);
+userRouter.post('/refresh/token', userController_1.default.refreshToken);
 exports.default = userRouter;
 //# sourceMappingURL=userRouter.js.map

@@ -1,6 +1,13 @@
 import User from '../../mongo-models/user'
 import {Request, Response} from 'express'
 import bcrypt from 'bcrypt'
+import createToken from '../../helperFunctions/createJWT'
+import createRefreshToken from '../../helperFunctions/refreshToken'
+
+import redis from 'redis'
+var redisDB = redis.createClient()
+
+
 
 let loginUser = function(request : Request, response : Response){
   let context:any = {
@@ -26,6 +33,16 @@ let loginUser = function(request : Request, response : Response){
         if (result == true){
           context.message = "Auth Successfull"
           context.success = true
+          context.token = createToken(user._id)
+          context.refreshToken = createRefreshToken(user._id)
+          context.userId = user._id
+          const recordName = `TOKEN_LIST_${user._id}`
+          const redisData = {
+            "token" : `${context.token}`,
+            "refreshToken" : `${context.refreshToken}`
+          }
+
+          redisDB.hmset(recordName, redisData)
           return response.status(200).json(context)
         } else {
           context.message = "Auth Unsuccessfull"

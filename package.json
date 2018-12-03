@@ -9,11 +9,13 @@
     "@types/express": "^4.16.0",
     "@types/jsonwebtoken": "^8.3.0",
     "@types/mongoose": "^5.3.1",
+    "@types/redis": "^2.8.8",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.4.0",
-    "mongoose": "^5.3.13"
+    "mongoose": "^5.3.13",
+    "redis": "^2.8.0"
   },
   "scripts": {
     "start": "node dist/server.js",
@@ -22,7 +24,7 @@
     "test": "mocha -r ts-node/register 'src/tests/**/*.spec.ts'",
     "watch-ts": "tsc -w",
     "watch-js": "nodemon dist/server.js",
-    "watch-test-js" : "mocha --watch dist/tests/**/*spec.js",
+    "watch-test-js": "mocha --watch dist/tests/**/*spec.js",
     "watch-test-ts": "mocha -r ts-node/register --watch 'src/tests/**/*.spec.ts' --watch-extensions ts"
   },
   "devDependencies": {
