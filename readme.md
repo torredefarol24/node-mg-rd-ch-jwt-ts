@@ -14,7 +14,7 @@ To test this,
 
 - Build Docker Image 
 ```sh
-$ cd nodeJWT
+$ cd nodets-mongojwt-chai
 $ docker build -t <APP_IMAGE_NAME> . 
 
 ```
@@ -41,7 +41,7 @@ $ docker run --name <APP_INSTANCE> --link <MONGO_INSTANCE_NAME>:mongo --link <RE
  - Create DBKeys
 
 ```sh
-$ cd nodeJWT
+$ cd nodets-mongojwt-chai
 $ touch src/keys/dbKeys.ts
 ```
 
@@ -56,7 +56,7 @@ export default dbKeys
 
  - Create JWTSecrets
 ```sh
-$ cd nodeJWT
+$ cd nodets-mongojwt-chai
 $ touch src/keys/jwtSecret.ts
 ```
 
@@ -72,7 +72,7 @@ export default jwtKeys
  
  - Update src/app.ts
 ```sh
-$ cd nodeJWT
+$ cd nodets-mongojwt-chai
 
 #Change Line 25
 mongoDBConfig.dockerSetup()
@@ -85,7 +85,7 @@ mongoDBConfig.localSetup()
 <h3> INSTALL PACKAGE DEPENDENCIES</h3>
 
 ```sh
-$ cd nodeJWT
+$ cd nodets-mongojwt-chai
 $ yarn install
 # or with npm
 
@@ -96,14 +96,14 @@ $ npm install
 <h3> RUN TESTS</h3>
 
 ```sh
-$ cd nodeJWT
+$ cd nodets-mongojwt-chai
 $ yarn run watch-test-ts
 ```
 
 <h3> RUN APP in DEV Mode</h3>
 
 ```sh
-$ cd nodeJWT
+$ cd nodets-mongojwt-chai
 $ yarn run watch-ts
 $ yarn run watch-js
 ```
@@ -111,6 +111,6 @@ $ yarn run watch-js
 <h3> RUN IN PROD Mode</h3>
 
 ```sh
-$ cd nodeJWT
+$ cd nodets-mongojwt-chai
 $ yarn start
 ```
