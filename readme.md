@@ -12,25 +12,29 @@ To test this,
 
 <h1> Run Docker Container</h1>
 
-- Build Docker Image 
+- Pull Docker Image 
 ```sh
 $ cd nodets-mongojwt-chai
-$ docker build -t <APP_IMAGE_NAME> . 
+$ docker pull burningraven06/nodets-jwt-mongo-chai-rds
 
 ```
 - Start Mongo Container
 ```sh
+$ docker pull mongo
 $ docker run --name <MONGO_INSTANCE> -d mongo
 ```
 
 - Start Redis Container
 ```sh
+$ docker pull redis
 $ docker run --name <REDIS_INSTANCE> -d redis
+
+# You may need to update your docker redis.conf
 ```
 
 - Start App & Link Containers
 ```sh
-$ docker run --name <APP_INSTANCE> --link <MONGO_INSTANCE_NAME>:mongo --link <REDIS_INSTANCE> -p 5000:4000 -d <APP_IAMGE_NAME>
+$ docker run --name <APP_INSTANCE> --link <MONGO_INSTANCE_NAME>:mongo --link <REDIS_INSTANCE> -p 5000:4000 -d burningraven06/nodets-jwt-mongo-chai-rds
 
 # Visit localhost:5000 
 ```
@@ -72,9 +76,9 @@ const jwtKeys = {
 export default jwtKeys
 ```
  
- - Update src/app.ts
+ - Update **src/app.ts** 
 ```sh
-$ cd nodets-mongojwt-chai
+$ cd nodets-mongojwt-chai/src/   #Open app.ts
 
 #Change Line 25
 mongoDBConfig.dockerSetup()
@@ -83,6 +87,30 @@ mongoDBConfig.dockerSetup()
 mongoDBConfig.localSetup()
 
 ```
+
+ - Update **src/controllers/user/authenticate.ts** 
+```sh
+$ cd nodets-mongojwt-chai/src/controllers/user/   #Open authenticate.ts
+
+#Change Line 9
+var redisDB = redis.createClient(6379, "redis")
+
+# to 
+var redisDB = redis.createClient(6379, "localhost")
+```
+
+
+ - Update **src/controllers/user/refreshToken.ts** 
+```sh
+$ cd nodets-mongojwt-chai/src/controllers/user/   #Open refreshToken.ts
+
+#Change Line 7
+var redisDB = redis.createClient(6379, "redis")
+
+# to 
+var redisDB = redis.createClient(6379, "localhost")
+```
+
 
 <h3> INSTALL PACKAGE DEPENDENCIES</h3>
 
