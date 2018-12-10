@@ -1,4 +1,5 @@
 node_modules
+dist/
 src/keys/dbKeys.ts
 src/keys/jwtSecret.ts
 dist/keys/*

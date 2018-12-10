@@ -1,1 +1,0 @@
-{"version":3,"file":"user.js","sourceRoot":"","sources":["../../src/mongo-models/user.ts"],"names":[],"mappings":";;;;;AAAA,sDAA+B;AAC/B,+DAA8C;AAW9C,IAAM,aAAa,GAAG,MAAM,CAAA;AAC5B,kBAAQ,CAAC,MAAM,GAAG,EAAE,CAAA;AACpB,IAAM,SAAS,GAAG,kBAAQ,CAAC,KAAK,CAAyB,aAAa,EAAE,cAAU,CAAC,CAAA;AAEnF,kBAAe,SAAS,CAAA"}

@@ -31,6 +31,7 @@ $ docker run --name <REDIS_INSTANCE> -d redis
 - Start App & Link Containers
 ```sh
 $ docker run --name <APP_INSTANCE> --link <MONGO_INSTANCE_NAME>:mongo --link <REDIS_INSTANCE> -p 5000:4000 -d <APP_IAMGE_NAME>
+
 # Visit localhost:5000 
 ```
 
@@ -48,7 +49,8 @@ $ touch src/keys/dbKeys.ts
  - Update DBKEys
 ```sh
 const dbKeys = {
-  mongoLocalUrl : <YOUR_MONGODB_URI>
+  mongoLocalUrl : <YOUR_MONGODB_URI>,
+  mongoDockerURL : ""
 }
 
 export default dbKeys

@@ -1,1 +1,0 @@
-{"version":3,"file":"sayHey.js","sourceRoot":"","sources":["../../../src/controllers/theIndex/sayHey.ts"],"names":[],"mappings":";;AAEA,IAAI,MAAM,GAAG,UAAS,OAAiB,EAAE,QAAmB;IAC1D,IAAI,OAAO,GAAG;QACZ,OAAO,EAAG,WAAW;KACtB,CAAA;IACD,OAAO,QAAQ,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC,IAAI,CAAC,OAAO,CAAC,CAAA;AAC3C,CAAC,CAAA;AAED,kBAAe,MAAM,CAAA"}
