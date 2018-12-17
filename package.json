@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "server.js",
   "license": "MIT",
+  "private": true,
+  "author": "Toufiq (https://twitter.com/burningraven06)",
+  "description" : "Express TypeScript API Authentication with MongoDB, JWT & Unit Testing with Mocha / Chai",
+  "keywords" : [ "express","typescript","jwt","bcrypt","unit-testing","typescript-tests","mocha","chai","mongodb","node-typescript "],
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/body-parser": "^1.17.0",
